@@ -1,10 +1,11 @@
 {
   "env": {
     "browser": true,
-    "es2020": true
+    "es2021": true
   },
   "extends": [
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "airbnb"
   ],
   "parserOptions": {
@@ -15,7 +16,8 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "react",
+    "react-hooks"
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
@@ -24,6 +26,8 @@
     "import/no-named-as-default": "off",
     "import/no-named-as-default-member": "off",
     "no-unused-vars": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

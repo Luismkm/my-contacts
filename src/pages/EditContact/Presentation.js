@@ -1,17 +1,15 @@
+import PropTypes from 'prop-types'
+
 import ContactForm from '../../components/ContactForm';
 import PageHeader from '../../components/PageHeader';
 import Loader from '../../components/Loader';
 
-import useEditContact from './useEditContact';
-
-export default function EditContact() {
-  const {
-    isLoading,
-    contactName,
-    contactFormRef,
-    handleSubmit,
-  } = useEditContact()
-
+export default function Presentation({
+  isLoading,
+  contactName,
+  contactFormRef,
+  onSubmit
+}) {
 
   return (
     <>
@@ -22,9 +20,16 @@ export default function EditContact() {
       <ContactForm
         ref={contactFormRef}
         buttonLabel="Salvar altertações"
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
       />
     </>
   );
+}
+
+Presentation.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  contactName: PropTypes.string.isRequired,
+  contactFormRef: PropTypes.shape().isRequired,
+  onSubmit: PropTypes.func.isRequired,
 }
 
